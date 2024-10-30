@@ -1,8 +1,19 @@
+import Demo from "./components/Demo/Demo"
+import Home from "./components/Home/Home"
+import { Routes, Route } from "react-router-dom";
+import DemoHeader from "./components/Demo/DemoHeader";
+import HomeHeader from "./components/Home/HomeHeader";
+
 function App() {
+  const auth = false;
 
   return (
     <>
-      <h1 className='text-3xl font-bold text-red-500'>Hello Vite + React</h1>
+    {auth ? <HomeHeader /> : <DemoHeader />}
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/demo" element={<Demo />} />
+    </Routes>
     </>
   )
 }
